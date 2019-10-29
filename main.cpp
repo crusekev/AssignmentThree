@@ -1,5 +1,5 @@
 /*
-This program is a simple number guessing game. The player will be prompted for a guess of a number
+This program is a simple number guessing game. The player is be prompted for a guess of a number
 between 1 and 100 and will get 20 attempts. If the player guesses the random number within 20
 attempts, he/she wins.
 */
@@ -14,20 +14,20 @@ int checkGuess(int numRand, int guess); // Function prototype
 
 int main() {
 	srand(time(NULL)); // Seeding rand() with time so it's actually random
-	int numRand = rand() % 100 + 1;
+	int numRand = rand() % 100 + 1; // Generates a random number between 1 - 100
 	int guess = 0; // Players guess is stored here
-	int tries = 1; // Guessing attempts stored here. Set to 1 otherwise the number attempts is always 1 too many when the attempts are printed out below
+	int tries = 1; // Guessing attempts stored here. Set to 1 otherwise the number of attempts is always 1 too many when the attempts are printed out below
 
 	/*
 	Prompts the player for a guess and takes that input.
 	Loops through and checks if the players guess is <= 1, <= 5, <= 10, <= 20, or > 20 and outputs
 	the message associated with that condition.
-	Checks if the players guess is not equal to the random number. If it is not, the message is output.
+	Checks if the players guess is not equal to the random number. If it is not, the message is displayed.
 	tries is incremented
 	*/
 
 	while(true) {
-		std::cout << numRand << std::endl; // Used for debugging
+		//std::cout << numRand << std::endl; // Used for debugging
 		std::cout << "Enter a number between 1 and 100 (" << 21 - tries << " tries left): "; // Prompts the player for a guess. Also displays the remaining amount of attempts left
 		std::cin >> guess; // Prompts player for their guess
 		if(checkGuess(numRand, guess) <= 1 && guess != numRand)
@@ -68,7 +68,7 @@ int main() {
 }
 
 /*
-checkGuess value returning function that takes in 2 ints: numRand and guess.
+checkGuess is a value returning function that takes in 2 ints: numRand and guess.
 An int difference is defined inside the function.
 If the players guess is less than the random number, difference = the random number - guess.
 else difference = the guess - the random number.
